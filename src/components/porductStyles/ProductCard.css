@@ -1,0 +1,52 @@
+.eachProduct {
+  transition: 0.1s;
+  border: 1.5px solid transparent;
+  padding-bottom: 1em;
+}
+.eachProduct:hover {
+  border: 1.5px solid black;
+  box-sizing: border-box;
+  .quickView {
+    display: block !important;
+  }
+}
+
+.eachProduct button {
+  cursor: pointer;
+}
+
+.btnDelAndEdit {
+  border: 1px solid black;
+  text-transform: uppercase;
+  padding: 0.35em;
+  font-size: 12px;
+  background-color: white;
+}
+
+.quickView {
+  display: none !important;
+}
+/*! AddProduct styles */
+.addAllInp {
+  gap: 1em;
+  align-items: center;
+}
+.addAllInp input,
+.addAllInp select,
+.addAllInp option {
+  width: 90%;
+  padding: 1em 0.5em;
+}
+
+.addBtn {
+  background-color: white;
+  padding: 1em 3em;
+  border: 1px solid black;
+  transition: 0.2s;
+  cursor: pointer;
+}
+.addBtn:hover {
+  background-color: green;
+  color: white;
+}
+/*! AddProduct styles */
