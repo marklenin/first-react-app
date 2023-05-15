@@ -1,9 +1,12 @@
-import React from 'react'
+import React from "react";
+import Footer from "./components/Footer";
 
 function App() {
   return (
-    <div>App</div>
-  )
+    <div>
+      <Footer />
+    </div>
+  );
 }
 
-export default App
+export default App;
