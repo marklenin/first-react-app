@@ -1,0 +1,52 @@
+.navbar {
+  display: flex;
+}
+* {
+  font-family: "Montserrat", sans-serif;
+}
+
+.navbar button {
+  font-weight: 700;
+  font-size: 0.85em;
+  cursor: pointer;
+  transition: 0.1s;
+  background-color: transparent;
+  border: none;
+}
+.navbar button:hover {
+  opacity: 0.6;
+}
+
+.searchInp {
+  height: 100%;
+  border: none;
+  background-color: white;
+  padding: 1.5em 2.5em;
+  width: 95%;
+}
+.closeBtn {
+  height: 100%;
+  width: 5%;
+  background: transparent;
+  border: none;
+  /* font-size: 1.5em; */
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 730px) {
+  .navbar {
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 1em;
+  }
+  .logo {
+    order: -1;
+    font-size: 1.5em;
+  }
+  .filter {
+    display: flex;
+    width: 90%;
+    order: 1;
+    justify-content: space-between;
+  }
+}
