@@ -54,12 +54,14 @@ function ProductList() {
           <ProductCard key={item.id} item={item} />
         ))}
       </div>
+
       <div style={{ textAlign: "center" }}>
         <Stack spacing={2}>
           <Typography>Page: {page}</Typography>
           <Pagination count={count} page={page} onChange={handleChange} />
         </Stack>
       </div>
+
     </div>
   );
 }

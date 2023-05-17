@@ -21,6 +21,7 @@ function Cart() {
         YOUR CART[{cart.products.length}]
       </h1>
       {cart?.products.map((elem) => (
+
         <div
           style={{
             display: "flex",
@@ -107,6 +108,7 @@ function Cart() {
               </button>
             </div>
           </div>
+
         </div>
       ))}
       <button

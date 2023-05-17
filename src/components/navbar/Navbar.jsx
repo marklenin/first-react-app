@@ -19,7 +19,7 @@ function Navbar() {
   useEffect(() => {
     setSearchParams({ q: search });
   }, [search]);
-  //!search
+  // !search
 
   //!auth
   const {
