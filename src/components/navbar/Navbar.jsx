@@ -2,6 +2,9 @@ import React, { useEffect, useState } from "react";
 import "./Navbar.css";
 import { useCrud } from "../../context/CrudContextProvider";
 import { useNavigate, useSearchParams } from "react-router-dom";
+import { getCountProductsInCart } from "../../helpers/functions";
+import { MenuItem, MenuList } from "@mui/material";
+import { useAuth } from "../../context/AuthContextProvider";
 
 function Navbar() {
   const { handleSort } = useCrud();
@@ -16,7 +19,15 @@ function Navbar() {
   useEffect(() => {
     setSearchParams({ q: search });
   }, [search]);
-  //!search
+  // !search
+
+  //!auth
+  const {
+    handleLogout,
+    user: { email },
+    cart,
+  } = useAuth();
+  //!auth
 
   return (
     <>
@@ -66,6 +77,15 @@ function Navbar() {
             >
               KIDS
             </button>
+
+            <button
+              name="kids"
+              onClick={(e) => {
+                navigate("/favarites");
+              }}
+            >
+              FAVARITES
+            </button>
           </div>
           <div className="logo" style={{ cursor: "pointer" }}>
             <h1 onClick={() => navigate("/")}>MadHappy</h1>
@@ -77,8 +97,26 @@ function Navbar() {
             >
               SEARCH
             </button>
-            <button>LOG IN</button>
-            <button>CART[8]</button>
+
+            {email ? (
+              <MenuList>
+                <MenuItem>hello, {email}!</MenuItem>
+                <button
+                  onClick={() => {
+                    handleLogout();
+                  }}
+                >
+                  LOG OUT
+                </button>
+              </MenuList>
+            ) : (
+              // <MenuItem onClick={() => navigate("/auth")}>Login</MenuItem>
+              <button onClick={() => navigate("/auth")}>LOG IN</button>
+            )}
+
+            <button onClick={() => navigate("cart")}>
+              CART[{getCountProductsInCart()}]
+            </button>
           </div>
         </div>
       </div>

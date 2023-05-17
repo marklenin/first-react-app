@@ -5,14 +5,20 @@ import CrudContextProvider from "./context/CrudContextProvider";
 import { BrowserRouter } from "react-router-dom";
 import CartContextProvider from "./context/CartContextProvider";
 import "./index.css";
+import AuthContextProvider from "./context/AuthContextProvider";
+import FavaritesContextProvider from "./context/FavaritesContextProvider";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <CartContextProvider>
-    <CrudContextProvider>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
-    </CrudContextProvider>
-  </CartContextProvider>
+  <BrowserRouter>
+    <FavaritesContextProvider>
+      <AuthContextProvider>
+        <CartContextProvider>
+          <CrudContextProvider>
+            <App />
+          </CrudContextProvider>
+        </CartContextProvider>
+      </AuthContextProvider>
+    </FavaritesContextProvider>
+  </BrowserRouter>
 );

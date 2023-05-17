@@ -1,0 +1,125 @@
+*{
+    margin: 0;
+    /* padding: 0; */
+    box-sizing: border-box;
+}
+
+body{
+    background-color: rgb(255, 255, 255);
+}
+
+.free-shiping-container{
+    background-color: rgb(32, 32, 32);
+    width: 100%;
+    background-size: border-box;
+    background-position: top center;
+    justify-content: space-between;
+    text-align: center; 
+}
+
+.text-header{
+    color: white;
+    font-family: FH Oscar;
+    font-style: normal;
+    /* font-weight: 350; */
+    font-size: 10px;
+    line-height: 0.7px;
+    letter-spacing: 1.2px;
+    /* text-transform: uppercase; */
+    text-align: center;
+    padding: 10px 0;
+}
+
+.container{
+    text-align: center;
+    margin-top: 15px;
+}
+
+.header-menu{
+    /* display: inline-flex; */
+    /* text-align: center; */
+    /* border-radius: 3px; */
+    /* right: 10px; */
+    border-bottom: 1px solid rgb(32, 32, 32);
+    display: flex;
+    /* text-align: center; */
+    /* margin: auto; */
+    /* margin-left: 25px; */
+    /* margin-right: 25px; */
+    /* width: 6em */
+    
+}
+
+.left-menu{
+    /* margin-top: 5px; */
+    font-size: 10px;
+    /* font-style: FH Oscar; */
+    display: flex;
+    /* border-bottom: 2px; */
+    /* border-color: silver; */
+    /* margin-left: center; */
+    margin: auto;
+}
+
+/* header where there is MadHappy */
+
+.logo-name{
+    font-size: 35px;
+    /* justify-content: space-between; */
+    /* justify-self: center; */
+    /* font-style: FH Oscar; */
+    /* display: flex; */
+    /* margin-left: 35px; */
+    /* margin-top: 10px; */
+    margin: auto;
+    font-family: inherit;
+}
+
+.right-menu{
+    /* margin-top: 5px; */
+    font-size: 10px;
+    font-style: FH Osca;
+    display: flex;
+    margin: auto;
+}
+
+.container-f-a{
+    font-size: 8px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+/* all and filters+ */
+
+.alls{
+    margin-left: 10px;
+}
+
+.filters{
+    margin-right: 10px;
+}
+
+/* footer */
+.footer{
+    margin-top: auto;
+}
+.page{
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+.footer-div{
+    border-top: 1px solid rgb(32, 32, 32);
+    font-style: inherit;
+    font-size: x-small;
+    display: flex;
+    margin-bottom: 25px;
+    margin-left: 10px;
+    gap: 5em;
+    text-decoration: none;
+}
+a{
+  text-decoration: none;  
+}

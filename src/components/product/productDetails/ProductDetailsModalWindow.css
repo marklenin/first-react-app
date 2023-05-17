@@ -1,0 +1,45 @@
+.sizeBtns button,
+.sizeBtns {
+  font-size: 1.2rem;
+}
+
+.sizeBtns button {
+  padding: 0.5em 3em;
+  background-color: white;
+  border: 2px solid rgba(0, 0, 0, 0.447);
+  transition: 0.2s;
+}
+
+.sizeBtns button:hover {
+  border: 2px solid black;
+}
+.sizeBtnsOnly {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3em;
+}
+
+.counterBtns button {
+  background-color: transparent;
+  border: none;
+  font-size: larger;
+}
+.counterBtns {
+  padding: 0.1em 0;
+  border: 2px solid rgba(0, 0, 0, 0.447);
+}
+
+ul li {
+  margin-left: 1.5em;
+  padding: 0.2em 0;
+}
+button {
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.iconsContainer div {
+  display: flex;
+  gap: 1em;
+  padding: 1em 0;
+}
