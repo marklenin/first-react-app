@@ -7,6 +7,8 @@ import ProductCard from "./ProductCard";
 import Typography from "@mui/material/Typography";
 import Pagination from "@mui/material/Pagination";
 import Stack from "@mui/material/Stack";
+import { API } from "../../helpers/consts";
+import axios from "axios";
 
 function ProductList() {
   const { products, getProducts, deleteProduct, handleSort } = useCrud();
@@ -52,10 +54,12 @@ function ProductList() {
           <ProductCard key={item.id} item={item} />
         ))}
       </div>
-      <Stack spacing={2}>
-        <Typography>Page: {page}</Typography>
-        <Pagination count={count} page={page} onChange={handleChange} />
-      </Stack>
+      <div style={{ textAlign: "center" }}>
+        <Stack spacing={2}>
+          <Typography>Page: {page}</Typography>
+          <Pagination count={count} page={page} onChange={handleChange} />
+        </Stack>
+      </div>
     </div>
   );
 }
