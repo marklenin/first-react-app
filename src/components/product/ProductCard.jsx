@@ -1,32 +1,70 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useCart } from "../../context/CartContextProvider";
 import { useCrud } from "../../context/CrudContextProvider";
 import { useNavigate } from "react-router-dom";
 import "../porductStyles/ProductCard.css";
+import { IconButton, Button } from "@mui/material";
+import { ADMIN, API } from "../../helpers/consts";
+import { useAuth } from "../../context/AuthContextProvider";
+import { useFavarites } from "../../context/FavaritesContextProvider";
+import axios from "axios";
 
 function ProductCard({ item }) {
   const { deleteProduct } = useCrud();
   const { addProductToCart, checkProductInCart } = useCart();
   const navigate = useNavigate();
 
+  //!auth
+  const {
+    user: { email },
+  } = useAuth();
+  //!auth
+
+  // !favarites
+  const { addProductToFav, getFav } = useFavarites();
+  // !favarites
+
+  //!likes
+  useEffect(() => {
+    getOneProduct(item);
+  }, []);
+  const [like, setLike] = useState(false);
+  const [countLike, setCountLike] = useState(0);
+
+  const [product, setProduct] = useState();
+  const getOneProduct = async (item) => {
+    let { data } = await axios(`${API}/${item.id}`);
+    setProduct(data);
+  };
+
+  //!likes
+
+  const handleLikes = () => {
+    if (!like) {
+      setCountLike(countLike + 1);
+    } else {
+      setCountLike(countLike - 1);
+    }
+    let obj = {
+      ...product,
+      like: countLike,
+    };
+    setProduct(obj);
+  };
+  // useEffect(() => {
+  //   editProduct();
+  // }, [product]);
+
+  // const editProduct = async (updatedProduct) => {
+  //   await axios.patch(`${API}/${product?.id}`, product);
+  //   console.log("hello");
+  //   // getProducts();
+  // };
+
+  const handleFavarites = () => {};
+
   return (
     <div>
-      {/* <h1>
-        {item.name} {item.price}
-      </h1>
-      <span style={{}}>
-        <button onClick={() => navigate(`/edit/${item.id}`)}>edit</button>
-        <button onClick={() => deleteProduct(item.id)}>delete</button>
-      </span>
-      <button
-        onClick={() => {
-          navigate("/cart");
-          addProductToCart(item);
-        }}
-        color={checkProductInCart(item.id) ? "primary" : ""}
-      >
-        add to cart
-      </button> */}
       <div className="eachProduct">
         <div
           style={{ width: "300px", minWidth: "250px", position: "relative" }}
@@ -52,6 +90,9 @@ function ProductCard({ item }) {
                 border: "1px solid black",
                 padding: "0.5em 5em",
               }}
+              onClick={() => {
+                navigate(`/product-details/${item.id}`);
+              }}
             >
               QUICK VIEW
             </button>
@@ -71,30 +112,64 @@ function ProductCard({ item }) {
           <p>{item.title.toUpperCase()}</p>
           <p>{item.price} com</p>
         </div>
-        <span
-          style={{
-            display: "flex",
-            gap: "1em",
-            width: "100%",
-            justifyContent: "center",
-          }}
-        >
+
+        {email === ADMIN ? (
+          <>
+            {/* <Button size="small" onClick={() => navigate(`/edit/${item.id}`)}>
+              Edit
+            </Button>
+            <Button size="small" onClick={() => deleteProduct(item.id)}>
+              Delete
+            </Button> */}
+            <span
+              style={{
+                display: "flex",
+                gap: "1em",
+                width: "100%",
+                justifyContent: "center",
+              }}
+            >
+              <button
+                className="btnDelAndEdit"
+                onClick={() => navigate(`/edit/${item.id}`)}
+              >
+                edit
+              </button>
+              <button
+                className="btnDelAndEdit"
+                onClick={() => deleteProduct(item.id)}
+              >
+                delete
+              </button>
+            </span>
+          </>
+        ) : (
+          ""
+        )}
+        <div>
           <button
-            className="btnDelAndEdit"
-            onClick={() => navigate(`/edit/${item.id}`)}
+            onClick={() => {
+              setLike(!like);
+              handleLikes();
+            }}
           >
-            edit
+            like:
           </button>
+          <p>{countLike}</p>
+        </div>
+        <div>
           <button
-            className="btnDelAndEdit"
-            onClick={() => deleteProduct(item.id)}
+            onClick={() => {
+              addProductToFav(item);
+            }}
           >
-            delete
+            favarite
           </button>
-        </span>
+        </div>
       </div>
     </div>
   );
 }
 
 export default ProductCard;
+// 121117;
