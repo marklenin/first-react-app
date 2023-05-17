@@ -16,7 +16,7 @@ function Navbar() {
   useEffect(() => {
     setSearchParams({ q: search });
   }, [search]);
-  //!search
+  // !search
 
   return (
     <>

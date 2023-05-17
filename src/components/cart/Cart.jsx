@@ -38,6 +38,7 @@ function Cart() {
           >
             buy now{cart?.totalPrice}
           </button>
+          {/* <FontAwesomeIcon icon="fa-thin fa-thumbs-up" /> */}
         </div>
       ))}
     </div>
