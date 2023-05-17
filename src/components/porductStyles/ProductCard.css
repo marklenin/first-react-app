@@ -50,3 +50,12 @@
   color: white;
 }
 /*! AddProduct styles */
+
+/* !modal details window */
+.detailsModal {
+  position: absolute;
+  border: 1px solid black;
+  height: 100px;
+  width: 100px;
+}
+/* !modal details window */
